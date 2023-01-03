@@ -13,6 +13,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.3",
+    "bootstrap-vue": "^2.23.1",
     "pinia": "^2.0.28",
     "sass": "^1.57.1",
     "vue": "^2.7.7",

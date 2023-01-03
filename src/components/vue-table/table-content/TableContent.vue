@@ -10,27 +10,27 @@ const props = defineProps({
 
 <template>
   <div class="table-data">
-    <table>
+    <table class="table ">
       <thead>
         <tr>
           <th>Date sent</th>
           <th class="company-header">Company</th>
           <th class="multi-header">
-            <span>5 YRS</span>
+            <span class="multi-item">5 YRS</span>
             <div>
               <span>FIX</span>
               <span>FRN</span>
             </div>
           </th>
           <th class="multi-header">
-            <span>10 YRS</span>
+            <span class="multi-item">10 YRS</span>
             <div>
               <span>FIX</span>
               <span>FRN</span>
             </div>
           </th>
           <th class="multi-header">
-            <span>40 YRS</span>
+            <span class="multi-item">40 YRS</span>
             <div>
               <span>FIX</span>
               <span>FRN</span>
@@ -39,11 +39,10 @@ const props = defineProps({
         </tr>
       </thead>
       <tbody>
-        <tr
-          v-for="item in props.data"
-          :key="`${item.Company}-${item.DateSent}`"
-        >
-          <td class="date-sent">{{ item.DateSent }}</td>
+        <template v-for="item in props.data">
+        <tr aria-expanded="true" >
+          <td class="date-sent" data-target="#collapseContent1" data-toggle="collapse" data-group-id="grandparent"
+            data-role="expander">{{ item.DateSent }}</td>
           <td class="company-name">{{ item.Company }}</td>
           <td class="company-info five-years">
             <div class="company-info-content">
@@ -64,6 +63,8 @@ const props = defineProps({
             </div>
           </td>
         </tr>
+      </template>
+
       </tbody>
     </table>
   </div>
@@ -160,10 +161,26 @@ const props = defineProps({
       }
 
       thead {
+        padding-bottom: 0;
         tr {
           display: flex;
           justify-content: space-between;
           text-align: left;
+          align-items: flex-end;
+      
+          th {
+            border: none;
+            padding-bottom: 0;
+            text-transform: uppercase;
+            color: gray;
+          }
+          .multi-header {
+           .multi-item {
+              border-bottom: 1px solid #000;
+              width: 100%;
+              color: #000;
+            }
+          }
         }
       }
     }
