@@ -3,16 +3,16 @@
 </script>
 
 <template>
-  <div class="year-selector">
-    <div class="year">
+  <div class="year-selector btn-group btn-group-sm">
+    <button class="btn btn-secondary year">
       <span>5 YRS</span>
-    </div>
-    <div class="year">
+    </button>
+    <button class="btn btn-secondary year">
       <span>10 YRS</span>
-    </div>
-    <div class="year">
+    </button>
+    <button class="btn btn-secondary year">
       <span>40 YRS</span>
-    </div>
+    </button>
   </div>
 </template>
 
@@ -20,10 +20,8 @@
 .year-selector {
   display: flex;
   .year {
-    cursor: pointer;
-    &:not(:first-child):not(:last-child) {
-      margin: 0 1rem;
-    }
+    padding: 0 16px;
+    color: #527094;
   }
 }
 </style>

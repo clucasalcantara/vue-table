@@ -24,6 +24,7 @@ console.log({ data });
       <YearSelector :handler="setYears" />
       <TypeSelector :handler="setType" />
     </div>
+    <input type="text" class="form-control search" placeholder="Filter by company name ..." />
     <TableContent :data="data" />
   </div>
 </template>
@@ -35,9 +36,14 @@ console.log({ data });
 
   .table-controls {
     display: flex;
-    justify-content: space-between;
+    gap: 40px;
     flex: 1;
     flex-direction: row;
+  }
+  
+  .search{
+    margin-top: 20px;;
+    width: 400px;
   }
 }
 </style>

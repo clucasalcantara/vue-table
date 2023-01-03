@@ -10,60 +10,66 @@ const props = defineProps({
 
 <template>
   <div class="table-data">
-    <table class="table ">
+    <table class="table">
       <thead>
         <tr>
-          <th>Date sent</th>
-          <th class="company-header">Company</th>
-          <th class="multi-header">
-            <span class="multi-item">5 YRS</span>
-            <div>
-              <span>FIX</span>
-              <span>FRN</span>
+          <th scope="col">Date sent</th>
+          <th scope="col" class="company-header">Company</th>
+          <th>
+            <div class="multi-header">
+              <span class="multi-item">5 YRS</span>
+              <div>
+                <span>FIX</span>
+                <span>FRN</span>
+              </div>
             </div>
           </th>
-          <th class="multi-header">
-            <span class="multi-item">10 YRS</span>
-            <div>
-              <span>FIX</span>
-              <span>FRN</span>
+          <th scope="col">
+            <div class="multi-header">
+              <span class="multi-item">10 YRS</span>
+              <div>
+                <span>FIX</span>
+                <span>FRN</span>
+              </div>
             </div>
           </th>
-          <th class="multi-header">
-            <span class="multi-item">40 YRS</span>
-            <div>
-              <span>FIX</span>
-              <span>FRN</span>
+          <th scope="col">
+            <div class="multi-header">
+              <span class="multi-item">40 YRS</span>
+              <div>
+                <span>FIX</span>
+                <span>FRN</span>
+              </div>
             </div>
           </th>
         </tr>
       </thead>
       <tbody>
         <template v-for="item in props.data">
-        <tr aria-expanded="true" >
-          <td class="date-sent" data-target="#collapseContent1" data-toggle="collapse" data-group-id="grandparent"
-            data-role="expander">{{ item.DateSent }}</td>
-          <td class="company-name">{{ item.Company }}</td>
-          <td class="company-info five-years">
-            <div class="company-info-content">
-              <span>{{ item.Company }}</span>
-              <span>{{ item.Company }}</span>
-            </div>
-          </td>
-          <td class="company-info ten-years">
-            <div class="company-info-content">
-              <span>{{ item.Company }}</span>
-              <span>{{ item.Company }}</span>
-            </div>
-          </td>
-          <td class="company-info forty-years">
-            <div class="company-info-content">
-              <span>{{ item.Company }}</span>
-              <span>{{ item.Company }}</span>
-            </div>
-          </td>
-        </tr>
-      </template>
+          <tr aria-expanded="true">
+            <td class="date-sent" data-target="#collapseContent1" data-toggle="collapse" data-group-id="grandparent"
+              data-role="expander">{{ item.DateSent }}</td>
+            <td scope="row" class="company-name">{{ item.Company }}</td>
+            <td scope="row" class="company-info">
+              <div class="company-info-content">
+                <span>{{ item.Company }}</span>
+                <span>{{ item.Company }}</span>
+              </div>
+            </td>
+            <td class="company-info">
+              <div class="company-info-content">
+                <span>{{ item.Company }}</span>
+                <span>{{ item.Company }}</span>
+              </div>
+            </td>
+            <td class="company-info">
+              <div class="company-info-content">
+                <span>{{ item.Company }}</span>
+                <span>{{ item.Company }}</span>
+              </div>
+            </td>
+          </tr>
+        </template>
 
       </tbody>
     </table>
@@ -71,117 +77,90 @@ const props = defineProps({
 </template>
 
 <style scoped lang="scss">
-.table {
-  padding-top: 10rem;
+.table-data {
+  display: flex;
+  margin-top: 0;
   width: 100%;
 
-  .table-controls {
-    display: flex;
-    justify-content: space-between;
-    flex: 1;
-    flex-direction: row;
-  }
+  .table {
+    padding-top: 0;
+    width: 100%;
 
-  .table-data {
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 2rem;
 
-    & table {
-      display: flex;
-      flex-direction: column;
+    thead {
+      padding-bottom: 0;
       width: 100%;
 
-      th {
-        text-align: left;
+      tr {
+        th {
+          border: none;
+          padding-bottom: 0;
+          text-transform: uppercase;
+          color: gray;
+        }
 
-        &.multi-header {
+        .multi-header {
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          width: 160px;
           align-items: center;
-          text-align: center;
+          justify-content: center;
 
-          & div {
-            min-width: 120px;
-            max-width: 150px;
+          .multi-item {
+            border-bottom: 1px solid #000;
+            width: 100%;
+            color: #000;
+            text-align: center;
+          }
+
+          div {
             display: flex;
-            justify-content: space-between;
+            width: 100%;
+            justify-content: space-around;
           }
         }
       }
+    }
 
-      .date-sent {
-        min-width: 180px;
-        // align-self: flex-start;
-        text-align: left;
+    .date-sent {
+      width: auto;
+      // align-self: flex-start;
+      text-align: left;
+    }
+
+    .company-header {
+      text-align: left;
+    }
+
+    .company-name {
+      text-align: left;
+      font-weight: bold;
+      width: 40%;
+    }
+
+    .company-info {
+      text-align: left;
+
+      .company-info-content {
+        display: flex;
+        justify-content: space-around;
+        width: 160px;
       }
 
-      .company-name {
-        min-width: 265px;
-        margin-left: -65px;
-        width: 130px;
-        text-align: left;
+      &.five-years {
+        // padding-right: 100px;
       }
 
-      .company-info {
-        min-width: 250px;
-        text-align: left;
+      &.ten-years {}
 
-        .company-info-content {
-          display: flex;
-          flex: 1;
-          display: flex;
-          justify-content: space-evenly;
-          min-width: 200px;
-        }
+      &.forty-years {}
+    }
 
-        &.five-years {
-          padding-right: 50px;
-          // padding-right: 100px;
-        }
+    tbody {
+      width: 100%;
 
-        &.ten-years {
-          padding-left: 50px;
-          padding-right: 80px;
-        }
-
-        &.forty-years {
-          .company-info-content {
-            width: 20px;
-            margin-left: 15px;
-            display: flex;
-            justify-content: space-evenly;
-          }
-        }
-      }
-
-      tbody {
+      tr {
         width: 100%;
-      }
-
-      thead {
-        padding-bottom: 0;
-        tr {
-          display: flex;
-          justify-content: space-between;
-          text-align: left;
-          align-items: flex-end;
-      
-          th {
-            border: none;
-            padding-bottom: 0;
-            text-transform: uppercase;
-            color: gray;
-          }
-          .multi-header {
-           .multi-item {
-              border-bottom: 1px solid #000;
-              width: 100%;
-              color: #000;
-            }
-          }
-        }
       }
     }
   }

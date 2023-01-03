@@ -2,16 +2,16 @@
 </script>
 
 <template>
-  <div class="type-selector">
-    <div class="type">
+  <div class="type-selector btn-group btn-group-sm">
+    <button class="btn btn-secondary type">
       <span>Spread</span>
-    </div>
-    <div class="type">
+    </button>
+    <button class="btn btn-secondary type">
       <span>Yield</span>
-    </div>
-    <div class="type">
+    </button>
+    <button class="btn btn-secondary type">
       <span>3MLSpread</span>
-    </div>
+    </button>
   </div>
 </template>
 
@@ -20,10 +20,8 @@
 .type-selector {
   display: flex;
   .type {
-    cursor: pointer;
-    &:not(:first-child):not(:last-child) {
-      margin: 0 1rem;
-    }
+    padding: 0 16px;
+    color: #527094;
   }
 }
 </style>

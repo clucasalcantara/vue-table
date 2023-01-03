@@ -6,30 +6,27 @@ const props = defineProps({
   },
 });
 
-const currencies = ["USD", "CAD", "EUR"];
+const currencies = ["USD", "EUR" , "CAD"];
 </script>
 
 <template>
-  <div class="currency-selector">
-    <div
+  <div class="currency-selector btn-group btn-group-sm">
+    <button
       v-for="currency in currencies"
       :key="currency"
-      class="currency"
+      type="button" class="btn btn-secondary currency"
       @click="() => props.handler(currency)"
     >
-      <span>{{ currency }}</span>
-    </div>
+     {{ currency }}
+    </button>
   </div>
 </template>
 
 <style scoped lang="scss">
 .currency-selector {
-  display: flex;
   .currency {
-    cursor: pointer;
-    &:not(:first-child):not(:last-child) {
-      margin: 0 1rem;
-    }
+    padding: 8px 16px;
+    color: #527094;
   }
 }
 </style>
