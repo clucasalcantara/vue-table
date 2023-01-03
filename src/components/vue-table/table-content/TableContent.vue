@@ -13,8 +13,8 @@ const props = defineProps({
     <table class="table">
       <thead>
         <tr>
-          <th scope="col" class="date-sent">Date sent</th>
-          <th scope="col" class="company-header">Company</th>
+          <th scope="col" class="date-sent">Date sent <b-icon icon="caret-down-fill" variant="dark" class="carret-down"/></th>
+          <th scope="col" class="company-header">Company <b-icon icon="caret-down-fill" variant="dark" class="carret-down"/></th>
           <th>
             <div class="multi-header">
               <span class="multi-item">5 YRS</span>
@@ -48,8 +48,8 @@ const props = defineProps({
         <template v-for="item in props.data">
           <tr aria-expanded="true">
             <td class="date-sent" data-target="#collapseContent1" data-toggle="collapse" data-group-id="grandparent"
-              data-role="expander"><b-icon icon="chevron-right" variant="dark" class="date-chevron"/>{{ item.DateSent }}</td>
-            <td scope="row" class="company-name">{{ item.Company }}</td>
+              data-role="expander"><b-icon icon="chevron-right" variant="dark" class="date-chevron" v-if="item.DateSent"/>{{ item.DateSent }}</td>
+            <td scope="row" class="company-name" :class="{ 'company-name-active': item.DateSent }" >{{ item.Company }}</td>
             <td scope="row" class="company-info">
               <div class="company-info-content">
                 <span>{{ item.Company }}</span>
@@ -88,18 +88,20 @@ const props = defineProps({
 
 
     thead {
-      padding-bottom: 0;
       width: 100%;
+      border-bottom: 1px solid #000;
       .date-sent {
         padding-left: 30px
       }
 
+    
+
       tr {
         th {
           border: none;
-          padding-bottom: 0;
           text-transform: uppercase;
           color: gray;
+          padding-bottom: 5px;
         }
 
         .multi-header {
@@ -133,8 +135,14 @@ const props = defineProps({
 
     .company-name {
       text-align: left;
-      font-weight: bold;
       width: 40%;
+      color: #d5d5d5;
+      font-weight: bold;
+    }
+
+    .company-name-active{
+      color: #000;
+      
     }
 
     .company-info {
