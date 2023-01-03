@@ -13,7 +13,7 @@ const props = defineProps({
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">Date sent</th>
+          <th scope="col" class="date-sent">Date sent</th>
           <th scope="col" class="company-header">Company</th>
           <th>
             <div class="multi-header">
@@ -48,7 +48,7 @@ const props = defineProps({
         <template v-for="item in props.data">
           <tr aria-expanded="true">
             <td class="date-sent" data-target="#collapseContent1" data-toggle="collapse" data-group-id="grandparent"
-              data-role="expander">{{ item.DateSent }}</td>
+              data-role="expander"><b-icon icon="chevron-right" variant="dark" class="date-chevron"/>{{ item.DateSent }}</td>
             <td scope="row" class="company-name">{{ item.Company }}</td>
             <td scope="row" class="company-info">
               <div class="company-info-content">
@@ -90,6 +90,9 @@ const props = defineProps({
     thead {
       padding-bottom: 0;
       width: 100%;
+      .date-sent {
+        padding-left: 30px
+      }
 
       tr {
         th {
@@ -111,6 +114,7 @@ const props = defineProps({
             width: 100%;
             color: #000;
             text-align: center;
+            font-weight: bold;
           }
 
           div {
@@ -122,12 +126,7 @@ const props = defineProps({
       }
     }
 
-    .date-sent {
-      width: auto;
-      // align-self: flex-start;
-      text-align: left;
-    }
-
+   
     .company-header {
       text-align: left;
     }
@@ -159,6 +158,9 @@ const props = defineProps({
     tbody {
       width: 100%;
 
+      .date-chevron{
+        margin-right: 8px;
+      }
       tr {
         width: 100%;
       }
