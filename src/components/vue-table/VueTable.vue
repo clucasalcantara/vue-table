@@ -7,7 +7,7 @@ import YearSelector from "./controls/year-selector/YearSelector.vue";
 import TypeSelector from "./controls/type-selector/TypeSelector.vue";
 import TableContent from "./table-content/TableContent.vue";
 
-const { setCurrency, setType, setYears } = useUIStore();
+const { setCurrency, setType, setYears, setOpened, opened } = useUIStore();
 
 const handleCurrency = (currency: string) => {
   alert(currency);
@@ -25,7 +25,7 @@ console.log({ data });
       <TypeSelector :handler="setType" />
     </div>
     <input type="text" class="form-control search" placeholder="Filter by company name ..." />
-    <TableContent :data="data" />
+    <TableContent :data="data" :handler="setOpened" :opened="opened" />
   </div>
 </template>
 
