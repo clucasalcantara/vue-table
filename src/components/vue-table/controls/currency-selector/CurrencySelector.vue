@@ -6,7 +6,7 @@ const props = defineProps({
   },
 });
 
-const currencies = ["USD", "EUR" , "CAD"];
+const currencies = ['USD', 'EUR', 'CAD'];
 </script>
 
 <template>
@@ -14,10 +14,11 @@ const currencies = ["USD", "EUR" , "CAD"];
     <button
       v-for="currency in currencies"
       :key="currency"
-      type="button" class="btn btn-secondary currency"
+      type="button"
+      class="btn btn-secondary currency"
       @click="() => props.handler(currency)"
     >
-     {{ currency }}
+      {{ currency }}
     </button>
   </div>
 </template>
@@ -27,6 +28,10 @@ const currencies = ["USD", "EUR" , "CAD"];
   .currency {
     padding: 8px 16px;
     color: #527094;
+
+    &:hover {
+      color: #ffffff;
+    }
   }
 }
 </style>

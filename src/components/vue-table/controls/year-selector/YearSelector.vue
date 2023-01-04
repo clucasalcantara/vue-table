@@ -1,6 +1,4 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="year-selector btn-group btn-group-sm">
@@ -22,6 +20,10 @@
   .year {
     padding: 0 16px;
     color: #527094;
+
+    &:hover {
+      color: #ffffff;
+    }
   }
 }
 </style>

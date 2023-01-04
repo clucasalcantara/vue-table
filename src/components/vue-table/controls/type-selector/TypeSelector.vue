@@ -22,6 +22,10 @@ setup lang="ts">
   .type {
     padding: 0 16px;
     color: #527094;
+
+    &:hover {
+      color: #ffffff;
+    }
   }
 }
 </style>
